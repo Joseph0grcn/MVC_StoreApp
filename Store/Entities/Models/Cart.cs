@@ -28,14 +28,9 @@ namespace Entities.Models
             }else{
                 line.Quantity += quantity;
             }
-
-
         }
-
         public virtual void RemoveLine(Product product){
             Lines.RemoveAll(l => l.Product.Id.Equals(product.Id));
-
-
         }
         public decimal ComputeTotalValue()=>
          Lines.Sum(e=>e.Product.Price * e.Quantity);

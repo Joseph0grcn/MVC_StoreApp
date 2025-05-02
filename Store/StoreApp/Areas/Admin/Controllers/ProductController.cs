@@ -53,7 +53,7 @@ namespace StoreApp.Areas.Admin.Controllers
         }    
 
         private SelectList GetCategoriesSelectList(){
-            return new SelectList(_manager.categoryService.GetAllCategories(false),
+            return new SelectList(_manager.CategoryService.GetAllCategories(false),
             "CategoryId",
             "CategoryName",
             "1");

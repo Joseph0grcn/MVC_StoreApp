@@ -38,13 +38,12 @@ namespace StoreApp.Pages
                 Cart.AddItem(product,1);
                 //HttpContext.Session.SetJson<Cart>("cart", Cart);
             }
-            return Page();//return url
+            return RedirectToPage(new {returnUrl = returnUrl});//return url
 
         }
         public IActionResult OnPostRemove(int id, string returnUrl)
         {
             //Cart = HttpContext.Session.GetJson<Cart>("cart") ?? new Cart();
-
             Cart.RemoveLine(Cart.Lines.First(c1 => c1.Product.Id.Equals(id)).Product);
             //HttpContext.Session.SetJson<Cart>("cart", Cart);
 

@@ -5,12 +5,12 @@
     <div class="col-md-12">
         <div class="text-center">
             <div class="display-6">
-            @Model.ProductName
+                @Model.ProductName
             </div>
-            
-            <img class="img-fluid shadow rounded-3 my-3"src="@Model?.ImageUrl" alt="@Model?.ProductName">
 
-            <p class="lead text-danger">@Model?.Price.ToString("c")</p>        
+            <img class="img-fluid shadow rounded-3 my-3" src="@Model?.ImageUrl" alt="@Model?.ProductName">
+
+            <p class="lead text-danger">@Model?.Price.ToString("c")</p>
         </div>
     </div>
 </div>
@@ -20,15 +20,31 @@
 
 
 
+<div class="text-center">
+    <div class="btn-group">
+        <a class="btn btn-primary" asp-controller="Home" asp-action="Index">
+            <i class="fa-solid fa-house"></i>
+            Home
+        </a>
+        <form id="@Model?.Id" asp-page="/cart" method="post">
+            <input type="hidden" name="productId" value="@Model?.Id">
+            @* <input type="hidden" asp-for="@(Model.Id)"> kursta bu satýrla product ýd yolluyor fakat null referans olarak 0 deðer yolluyor o yüzden yukarýdaki düzenleme yapýldý *@
+            <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()">
+            @*value="/Product/Get/@Model?.Id">*@
 
-<div class="btn-group">
-    <a class="btn btn-primary" asp-controller="Home" asp-action="Index">
-        <i class="fa-solid fa-house"></i>
-        Home</a>
-    <a class="btn btn-outline-primary" asp-controller="Product" asp-action="Index">
-        <i class="fa-solid fa-list"></i>
-        Products</a>
+            <button type="submit" class="btn btn-outline-primary">
+                <i class="fa fa-cart-plus"></i>
+            </button>
+
+        </form>
+        <a class="btn btn-outline-primary" asp-controller="Product" asp-action="Index">
+            <i class="fa-solid fa-list"></i>
+            Products
+        </a>
+
+    </div>
 </div>
+
 
 @section Header {
     <div>Header for only Get"</div>

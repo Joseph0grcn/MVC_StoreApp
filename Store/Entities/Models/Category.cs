@@ -5,7 +5,7 @@ namespace Entities.Models
         public string? CategoryName { get; set; } = string.Empty;
 
     //collection navigation property
-        public ICollection<Product> Products{ get; set; }
+        public ICollection<Product>? Products { get; set; }
 
     }
 }
