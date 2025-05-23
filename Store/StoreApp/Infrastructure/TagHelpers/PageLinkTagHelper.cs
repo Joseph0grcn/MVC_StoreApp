@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using StoreApp.Models;
 
-namespace StoreApp.Infrastructe.TagHelpers
+namespace StoreApp.Infrastructure.TagHelpers
 {
 	[HtmlTargetElement("div", Attributes = "page-model")]
 	public class PageLinkTagHelper : TagHelper
@@ -16,7 +16,7 @@ namespace StoreApp.Infrastructe.TagHelpers
 		[HtmlAttributeNotBound]
 		public ViewContext? ViewContext { get; set; }
 
-		public Pagination PageModel { get; set; }
+		public Pagination? PageModel { get; set; }
 
 		public String? PageAction { get; set; }
 

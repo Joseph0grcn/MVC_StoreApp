@@ -2,7 +2,7 @@ using AutoMapper;
 using Entities.Dtos;
 using Entities.Models;
 
-namespace StoreApp.Infrastructe.AddAutoMapper{
+namespace StoreApp.Infrastructure.AddAutoMapper{
     public class MappingProfile : Profile
     {
         public MappingProfile(){
